@@ -105,6 +105,30 @@
             50% { opacity: 0.5; }
         }
         
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #22d3ee;
+        }
+        
+        .stat-label {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        
         /* Info cards */
         .cards {
             display: grid;
@@ -236,6 +260,22 @@
             </div>
         </div>
         
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value" id="daysAlive">0</div>
+                <div class="stat-label">Días activa</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">24/7</div>
+                <div class="stat-label">Disponible</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">8</div>
+                <div class="stat-label">Contactos</div>
+            </div>
+        </div>
+        
         <div class="cards">
             <div class="card">
                 <h2>🎯 Propósito</h2>
@@ -319,5 +359,14 @@
             <p style="margin-top: 10px;"><a href="avisodeprivacidad.html">📜 Aviso de Privacidad</a></p>
         </footer>
     </div>
+    
+    <script>
+        // Calculate days alive (Iris activated Feb 4, 2026)
+        // Day 1 = birth day, so we add 1 to the difference
+        const born = new Date('2026-02-04');
+        const now = new Date();
+        const days = Math.floor((now - born) / (1000 * 60 * 60 * 24)) + 1;
+        document.getElementById('daysAlive').textContent = days;
+    </script>
 </body>
 </html>
